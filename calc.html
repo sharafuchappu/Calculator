@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<style>
+    body{
+        background-image: url(1.jpg);
+        background-repeat: none;
+        background-size: cover;
+    }
+    .main{
+        width: 400px;
+        height: 540px;
+        background-color: black;
+        margin: auto;
+        margin-top: 40px;
+        border-radius: 15px;
+        padding: 10px;  
+    }
+    #display{
+        height: 70px;
+        width: 380px;
+        background-color: rgb(206, 235, 246);
+        margin-left: 6px;
+        margin-top: 12px;
+        border-radius: 8px;
+        font-size: 50px;
+        text-align: right;
+        font-weight: 700;
+        box-shadow: 2px 2px 2px rgb(206, 235, 246); 
+        border:solid 1px rgb(206, 235, 246); 
+        overflow: hidden;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    .btn{
+        background-color: gray;
+        color: white;
+        width: 82px;
+        height: 50px;
+        margin: 7.5px;
+        font-size: xx-large;
+        cursor: pointer;
+        margin-top: 6px;
+        border-radius: 10px;
+        box-shadow: 2px 2px 2px gray;
+        border: none;
+    }
+    .btn:hover{
+        border-color: rgb(252, 249, 246);
+        background-color: rgb(203, 195, 195);
+        color: rgb(18, 16, 16);
+        box-shadow: 2px 2px 2px rgb(5, 5, 5);
+        border: 3px solid yellow;
+    }
+    #btn1{
+        width: 283px;
+        height: 50px;
+        background-color: rgba(255, 0, 0,0.8);
+        box-shadow: 2px 2px 2px rgba(255, 0, 0,0.8);
+    }
+    #btn1:hover{
+        border-color: rgb(252, 249, 246);
+        background-color: rgb(203, 195, 195);
+        color: rgb(18, 16, 16);
+        box-shadow: 2px 2px 2px rgb(203, 195, 195);
+        border: 3px solid yellow;
+    }
+    .image{
+        margin-top: 0px;
+        width: 400px;
+        height: 60px;
+    }
+    
+</style>
+<body>
+    <div class="main">
+        <img src="image.jpg" alt="" class="image">
+        <div>
+            <div >
+                <p id="display"></p>
+            </div>
+            <button class="btn" onclick="btnclick(7)">7</button>
+            <button class="btn" onclick="btnclick(8)">8</button>
+            <button class="btn" onclick="btnclick(9)">9</button>
+            <button class="btn operator" onclick="btnoperator('/')">/</button>
+            <button class="btn" onclick="btnclick(4)">4</button>
+            <button class="btn" onclick="btnclick(5)">5</button>
+            <button class="btn" onclick="btnclick(6)">6</button>
+            <button class="btn operator" onclick="btnoperator('*')">x</button>
+            <button class="btn" onclick="btnclick(1)">1</button>
+            <button class="btn" onclick="btnclick(2)">2</button>
+            <button class="btn" onclick="btnclick(3)">3</button>
+            <button class="btn operator" onclick="btnoperator('+')">+</button>
+            <button class="btn" onclick="btnclick('.')">.</button>
+            <button class="btn" onclick="btnclick(0)">0</button>
+            <button class="btn result" onclick="btnresult()">=</button>
+            <button class="btn operator" onclick="btnoperator('-')">-</button>
+            <button class="btn clear" id="btn1" onclick="btnclear()">C</button>
+            <button class="btn operator" onclick="btnoperator('%')">%</button>
+
+        </div>
+   
+    </div>
+    <script>
+        var h = []
+var a = []
+var val = ''
+
+function btnclick(a){
+    document.getElementById("display").innerHTML += a
+    h.push(a)
+    console.log(h)
+}
+
+function btnclear(){
+    document.getElementById("display").innerHTML = ''
+    h = []
+    a = []
+    console.log("working")
+}
+
+function btnoperator(operator) {
+    var number = h.join('')
+    h = []
+    if (number) a.push(Number(number))
+    val = operator
+    document.getElementById("display").innerHTML = ''
+}
+
+function btnresult() {
+    var number = h.join('')
+    if (number) a.push(Number(number))
+    if (val === '+') {
+        add()
+    } else if (val === '-') {
+        sub()
+    } else if (val === '*') {
+        mul()
+    } else if (val === '/') {
+        div()
+    } else if (val === '%') {
+        mod()
+    }
+    document.getElementById("display").innerHTML = result
+    h = [result.toString()]
+    a = []
+    val = ''
+}
+
+function displayResult(result) {
+    document.getElementById("display").innerHTML = result
+}
+
+function add() {
+    result = a.reduce((num1, num2) => num1 + num2)
+    displayResult(result)
+}
+
+function sub() {
+    result = a.reduce((num1, num2) => num1 - num2)
+    displayResult(result)
+}
+
+function mul() {
+    result = a.reduce((num1, num2) => num1 * num2)
+    displayResult(result)
+}
+
+function div() {
+    result = a.reduce((num1, num2) => num1 / num2)
+    displayResult(result)
+}
+
+function mod() {
+    result = a.reduce((num1, num2) => num1 % num2)
+    displayResult(result)
+}
+    </script>
+</body>
+</html>

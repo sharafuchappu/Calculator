@@ -1,0 +1,69 @@
+body{
+    background-image: url(/javaScript/1.jpg);
+    background-repeat: none;
+    background-size: cover;
+}
+.main{
+    width: 400px;
+    height: 540px;
+    background-color: black;
+    margin: auto;
+    margin-top: 40px;
+    border-radius: 15px;
+    padding: 10px;  
+}
+#display{
+    height: 70px;
+    width: 380px;
+    background-color: rgb(206, 235, 246);
+    margin-left: 6px;
+    margin-top: 12px;
+    border-radius: 8px;
+    font-size: 50px;
+    text-align: right;
+    font-weight: 700;
+    box-shadow: 2px 2px 2px rgb(206, 235, 246); 
+    border:solid 1px rgb(206, 235, 246); 
+    overflow: hidden;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.btn{
+    background-color: gray;
+    color: white;
+    width: 82px;
+    height: 50px;
+    margin: 7.5px;
+    font-size: xx-large;
+    cursor: pointer;
+    margin-top: 6px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px gray;
+    border: none;
+}
+.btn:hover{
+    border-color: rgb(252, 249, 246);
+    background-color: rgb(203, 195, 195);
+    color: rgb(18, 16, 16);
+    box-shadow: 2px 2px 2px rgb(5, 5, 5);
+    border: 3px solid yellow;
+}
+#btn1{
+    width: 283px;
+    height: 50px;
+    background-color: rgba(255, 0, 0,0.8);
+    box-shadow: 2px 2px 2px rgba(255, 0, 0,0.8);
+}
+#btn1:hover{
+    border-color: rgb(252, 249, 246);
+    background-color: rgb(203, 195, 195);
+    color: rgb(18, 16, 16);
+    box-shadow: 2px 2px 2px rgb(203, 195, 195);
+    border: 3px solid yellow;
+}
+.image{
+    margin-top: 0px;
+    width: 400px;
+    height: 60px;
+}
